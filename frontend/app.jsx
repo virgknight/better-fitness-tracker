@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-// import configureStore from "./store/store";
-// import Root from "./components/root";
+import configureStore from "./store/store";
+import Root from "./components/root";
 
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root");
-    ReactDOM.render(<h1>Welcome to My App</h1>, root);
 
+    // Note: Add code below if and when this becomes a multi-user platform
     // let store;
     // if (window.currentUser) {
     //     const preloadedState = {
@@ -19,5 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
     //     store = configureStore();
     // }
 
-    // ReactDOM.render(<Root store={store} />, root)
+    const store = configureStore();
+    ReactDOM.render(<Root store={store} />, root)
 });
