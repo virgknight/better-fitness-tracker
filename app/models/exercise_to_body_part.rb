@@ -9,5 +9,12 @@
 #  updated_at   :datetime         not null
 #
 class ExerciseToBodyPart < ApplicationRecord
+    validates :exercise_id, :body_part_id, presence: true
+    validates :exercise_id, uniqueness: {scope: :body_part_id}
 
+    belongs_to :exercise,
+    class_name: :Exercise
+
+    belongs_to :body_part,
+    class_name: :BodyPart
 end

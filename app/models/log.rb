@@ -8,5 +8,11 @@
 #  updated_at :datetime         not null
 #
 class Log < ApplicationRecord
+    validates :workout_id, presence: true
 
+    belongs_to :workout,
+    class_name: :Workout
+
+    has_many :log_entries,
+    class_name: :LogEntry
 end

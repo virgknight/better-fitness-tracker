@@ -9,5 +9,15 @@
 #  updated_at  :datetime         not null
 #
 class Workout < ApplicationRecord
+    validates :title, presence: true
 
+    has_many :exercise_assignments,
+    class_name: :WorkoutToExercise
+
+    has_many :exercises,
+    through: :exercise_assignments,
+    source: :exercise
+
+    has_many :logs,
+    class_name: :Log
 end

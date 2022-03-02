@@ -9,5 +9,15 @@
 #  updated_at  :datetime         not null
 #
 class WorkoutToExercise < ApplicationRecord
+    validates :exercise_id, :workout_id, presence: true
+    validates :exercise_id, uniqueness: {scope: :workout_id}
 
+    belongs_to :exercise,
+    class_name: :Exercise
+
+    belongs_to :workout,
+    class_name: :Workout
+
+    has_many :log_entries,
+    class_name: :LogEntry
 end
