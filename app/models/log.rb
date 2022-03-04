@@ -14,5 +14,6 @@ class Log < ApplicationRecord
     class_name: :Workout
 
     has_many :log_entries,
-    class_name: :LogEntry
+    class_name: :LogEntry,
+    dependent: :destroy
 end

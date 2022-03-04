@@ -1,0 +1,1 @@
+json.partial! "api/body_parts/body_part", body_part: @body_part
